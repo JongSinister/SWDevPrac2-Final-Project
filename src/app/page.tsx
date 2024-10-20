@@ -4,7 +4,7 @@ import Banner from "@/components/Banner";
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Banner name="Sushi" imgUrl="/img/cover.jpg" />
+      <Banner />
     </main>
   );
 }
