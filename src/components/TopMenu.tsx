@@ -42,14 +42,6 @@ export default async function TopMenu() {
         </Link>
       </div>
 
-      <div className="h-full hover:bg-gray-700 rounded-lg">
-        <Link href="/reservations">
-          <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
-            Reservations
-          </div>
-        </Link>
-      </div>
-
     </div>
   );
 }
