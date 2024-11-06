@@ -1,7 +1,10 @@
 import Link from "next/link";
-
+import { getServerSession } from "next-auth";
 
 export default function TopMenu() {
+
+  const session = getServerSession();
+
   return (
     <div className="h-[50px] bg-gray-900 fixed top-[0px] inset-x-[0px] z-30 flex flex-row items-center">
       <Link href="/booking">
