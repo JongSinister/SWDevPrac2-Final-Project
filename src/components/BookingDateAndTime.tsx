@@ -12,7 +12,7 @@ export default function BookingDateAndTime({onDateChange, onTimeChange}:{onDateC
     const [bookingTime, setBookingTime] = useState<Dayjs | null>(null);
 
     return(
-        <div className="flex flex-col w-full my-6 text-xl font-sans font-bold">
+        <div className="flex flex-col w-full mb-6 text-xl font-sans font-bold">
             Pick Your Booking Date and Time
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <div className="flex flex-row mx-10">
