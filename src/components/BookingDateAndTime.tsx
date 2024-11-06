@@ -12,9 +12,10 @@ export default function BookingDateAndTime({onDateChange, onTimeChange}:{onDateC
     const [bookingTime, setBookingTime] = useState<Dayjs | null>(null);
 
     return(
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full my-6">
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker className='bg-white' value={bookingDate} onChange={(value) => { 
+                <DatePicker className='bg-white' value={bookingDate}
+                    onChange={(value) => { 
                     setBookingDate(value);
                     onDateChange(value) 
                 }} />
