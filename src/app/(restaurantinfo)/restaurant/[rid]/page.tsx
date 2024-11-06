@@ -10,7 +10,7 @@ export default async function restaurantDetailPage({params}:{params:{rid:string}
             <h1 className="text-5xl font-bold">{restaurant.data.name}</h1>
             <div className="flex flex-col my-10 items-center">
                 <Image src={restaurant.data.picture} alt={restaurant.data.name} width={1000} height={300}
-                    className="content-center" />
+                    className="w-full" />
                 <div className="flex flex-row mt-7 my-3 items-center">
                     <Image src="/img/cutlery.png" alt="foodtype" width={30} height={30} />
                     <p className="mx-2 text-2xl">{restaurant.data.foodtype} Food</p>
