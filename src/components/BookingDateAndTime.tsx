@@ -9,7 +9,7 @@ import { TimePicker } from '@mui/x-date-pickers'
 export default function BookingDateAndTime({onDateChange, onTimeChange}:{onDateChange:Function,onTimeChange:Function}) {
 
     const [bookingDate, setBookingDate] = useState<Dayjs | null>(null);
-    const [bookingTime, setBookingTime] = useState<string | null>(null);
+    const [bookingTime, setBookingTime] = useState<Dayjs | null>(null);
 
     return(
         <div className="flex flex-col w-full">
@@ -17,6 +17,10 @@ export default function BookingDateAndTime({onDateChange, onTimeChange}:{onDateC
                 <DatePicker className='bg-white' value={bookingDate} onChange={(value) => { 
                     setBookingDate(value);
                     onDateChange(value) 
+                }} />
+                <TimePicker className='bg-white' value={bookingTime} onChange={(value) => { 
+                    setBookingTime(value);
+                    onTimeChange(value) 
                 }} />
             </LocalizationProvider>
         </div>
