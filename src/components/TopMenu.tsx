@@ -7,26 +7,32 @@ export default async function TopMenu() {
   const session = await getServerSession(authOptions);
 
   return (
-    <div className="h-[50px] bg-gray-900 fixed top-[0px] inset-x-[0px] z-30 flex flex-row items-center">
+    <div className="h-[50px] bg-gray-900 fixed top-[0px] inset-x-[0px] z-30 flex flex-row items-center font-sans font-bold">
+
+      <div className="h-full hover:bg-gray-700">
       {
         session?
-        <Link href="/api/auth/signin">
-          <div className="flex items-center h-full px-5 text-cyan-600 text-sm hover:underline">
+        <Link href="/api/auth/signin" className="h-full">
+          <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
             Log Out
           </div>
         </Link>
         :
         <Link href="/api/auth/signin">
-          <div className="flex items-center h-full px-5 text-cyan-600 text-sm hover:underline">
+          <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
             Log In
           </div>
         </Link>
       }
-      <Link href="/booking">
-        <div className="flex items-center h-full px-5 text-cyan-600 text-sm hover:underline">
-          Booking
-        </div>
-      </Link>
+      </div>
+
+      <div className="h-full hover:bg-gray-700">
+        <Link href="/booking">
+          <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
+            Booking
+          </div>
+        </Link>
+      </div>
     </div>
   );
 }
