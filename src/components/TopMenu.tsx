@@ -9,7 +9,7 @@ export default async function TopMenu() {
   return (
     <div className="h-[50px] bg-gray-900 fixed top-[0px] inset-x-[0px] z-30 flex flex-row items-center font-sans font-bold">
 
-      <div className="h-full hover:bg-gray-700">
+      <div className="h-full hover:bg-gray-700 rounded-lg">
       {
         session?
         <Link href="/api/auth/signin" className="h-full">
@@ -26,7 +26,7 @@ export default async function TopMenu() {
       }
       </div>
 
-      <div className="h-full hover:bg-gray-700">
+      <div className="h-full hover:bg-gray-700 rounded-lg">
         <Link href="/booking">
           <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
             Booking
