@@ -27,7 +27,7 @@ export default function bookings() {
 
         Number of People
         <TextField name="NumberOfPeople" type="number" value={numberOfPeople} className="w-16 mb-10"
-                  onChange={(e)=>{setNumberOfPeople(e.target.value)}}
+                  onChange={(e)=>{setNumberOfPeople(e.target.value)}} inputProps={{min:1,max:200,step:1}}
                   placeholder="1" variant="standard"/>
 
         Telephone Number
