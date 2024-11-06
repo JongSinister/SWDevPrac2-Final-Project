@@ -11,15 +11,24 @@ export default function bookings() {
   const [bookingDate, setBookingDate] = useState<Dayjs | null>(null);
   const [bookingTime, setBookingTime] = useState<Dayjs | null>(null);
   const [name, setName] = useState<string>('');
+  const [numberOfPeople, setNumberOfPeople] = useState<string>("1");
 
   return (
     <div className="m-5">
       <div className="text-5xl font-sans font-bold">
         Book Your Best Restaurant
       </div>
-      <div className="mx-20 flex flex-col font-sans font-bold text-xl w-full">
-        <TextField name="Name" label="Name" fullWidth className="my-5 min-w-64 max-w-xl" variant="standard"
+      <div className="mx-20 flex flex-col font-sans font-bold text-xl w-full my-5">
+        
+        User Name
+        <TextField name="Name" label="Name" className="min-w-64 max-w-xl mb-10" variant="standard"
                             value={name} onChange={(e)=>{setName(e.target.value)}}/>
+
+        Number of People
+        <TextField name="NumberOfPeople" type="number" value={numberOfPeople} className="w-16"
+                  onChange={(e)=>{setNumberOfPeople(e.target.value)}}
+                  placeholder="1" variant="standard"/>
+
         <BookingDateAndTime onDateChange={(value:Dayjs) => { setBookingDate(value) }} 
                           onTimeChange={(value:Dayjs) => { setBookingTime(value) }} />
       </div>
