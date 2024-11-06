@@ -1,10 +1,10 @@
 import dayjs from "dayjs";
 
-export default function reservations() {
+export default function bookings() {
   return (
     <div className="m-5">
       <div className="text-5xl font-sans font-bold">
-        Reservation
+        Book Your Best Restaurant
       </div>
     </div>
   );
