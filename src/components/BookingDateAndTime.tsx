@@ -1,6 +1,10 @@
 'use client'
 import { useState } from "react";
 import { Dayjs } from "dayjs";
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { DatePicker } from '@mui/x-date-pickers'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import { TimePicker } from '@mui/x-date-pickers'
 
 export default function BookingDateAndTime({onDateChange, onTimeChange}:{onDateChange:Function,onTimeChange:Function}) {
 
@@ -9,7 +13,12 @@ export default function BookingDateAndTime({onDateChange, onTimeChange}:{onDateC
 
     return(
         <div className="flex flex-col w-full">
-            
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DatePicker className='bg-white' value={bookingDate} onChange={(value) => { 
+                    setBookingDate(value);
+                    onDateChange(value) 
+                }} />
+            </LocalizationProvider>
         </div>
     )
 
