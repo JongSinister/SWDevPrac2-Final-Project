@@ -1,5 +1,6 @@
 import getRestaurant from "@/libs/getRestaurant";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function restaurantDetailPage({params}:{params:{rid:string}}){
 
@@ -23,6 +24,11 @@ export default async function restaurantDetailPage({params}:{params:{rid:string}
                     <Image src="/img/phone-call.png" alt="tel" width={30} height={30} />
                     <p className="mx-2 text-2xl">{restaurant.data.tel}</p>
                 </div>
+                <Link href={`/reservations?id=${params.rid}&restaurant=${restaurant.data.model}`}>
+                        <button className='block rounded-md bg-gray-900 hover:bg-gray-500 px-3 py-2 text-white'>
+                            Make Reservation
+                        </button>
+                </Link>
             </div>
         </div>
     )
