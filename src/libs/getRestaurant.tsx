@@ -1,4 +1,4 @@
-export default async function getRestaurants(id: string) {
+export default async function getRestaurant(id: string) {
   const response = await fetch(
     `https://restaurant-booking-project-backend.vercel.app/api/v1/restaurants/${id}`
   );

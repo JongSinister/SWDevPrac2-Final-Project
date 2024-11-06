@@ -1,0 +1,1 @@
+import getRestaurant from "@/libs/getRestaurant";
