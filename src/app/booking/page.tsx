@@ -15,8 +15,10 @@ export default function bookings() {
       <div className="text-5xl font-sans font-bold">
         Book Your Best Restaurant
       </div>
-      <BookingDateAndTime onDateChange={(value:Dayjs) => { setBookingDate(value) }} 
+      <div className="mx-20 flex flex-col font-sans font-bold text-xl w-full">
+        <BookingDateAndTime onDateChange={(value:Dayjs) => { setBookingDate(value) }} 
                           onTimeChange={(value:Dayjs) => { setBookingTime(value) }} />
+      </div>
     </div>
   );
 }
