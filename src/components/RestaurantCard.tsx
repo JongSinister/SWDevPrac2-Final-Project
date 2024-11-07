@@ -14,7 +14,7 @@ export default function RestaurantCard({imgSrc,restaurantName,foodtype,isAdmin}:
                     isAdmin?
                     <div className="font-light text-lg m-2">Admin</div>
                     :
-                    <div className="font-light text-lg m-2">User</div>
+                    <div className="font-light text-lg m-2">Not Admin</div>
                 }
             </div>
         </div>

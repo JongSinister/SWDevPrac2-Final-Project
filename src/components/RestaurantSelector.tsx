@@ -9,9 +9,9 @@ export default async function RestaurantSelector({restaurants}:{restaurants:Prom
     const session = await getServerSession(authOptions);
     console.log("session : "+ session);
     let isAdmin = false;
-    // if(session){
-    //     isAdmin = session.user?.role==="admin";
-    // }
+    if(session){
+        isAdmin = session.user?.role==="admin";
+    }
     
     return (
         <div className="flex flex-col m-5 w-full justify-center">
