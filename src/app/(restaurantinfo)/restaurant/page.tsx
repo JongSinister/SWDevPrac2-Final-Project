@@ -7,7 +7,7 @@ export default async function restaurants(){
     const restaurants = await getRestaurants();
 
     return(
-        <div>
+        <div className="font-sans m-6">
             Restaurants           
         </div>
     )
