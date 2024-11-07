@@ -10,7 +10,21 @@ export default async function RestaurantSelector({restaurants}:{restaurants:Prom
     console.log("session : "+ session);
     let isAdmin = false;
     if(session){
-        isAdmin = session.user?.role==="admin";
+        const getMe = async () => {
+            const response = await fetch("https://restaurant-booking-project-backend.vercel.app/api/v1/auth/me",{
+                method:"GET",
+                headers:{
+                    "Content-Type":"application/json",
+                    "Authorization": `Bearer ${session.user.token}`,
+                },
+            })
+            if(!response.ok){
+                console.log(response)
+                throw new Error("Failed to login")
+            }
+            return await response.json()
+        }
+        isAdmin = (await getMe()).data.role === "admin";
     }
     
     return (
