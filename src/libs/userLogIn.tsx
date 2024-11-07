@@ -1,6 +1,6 @@
 export default async function userLogin(userEmail: string, userPassword: string) {
     
-    const response = await fetch("http://localhost:3000/api/v1/auth/login",{
+    const response = await fetch("https://restaurant-booking-project-backend.vercel.app/api/v1/auth/login",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -13,6 +13,5 @@ export default async function userLogin(userEmail: string, userPassword: string)
     if(!response.ok){
         throw new Error("Failed to login")
     }
-    console.log(response)
     return await response.json()
 }

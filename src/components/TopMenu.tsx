@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 
 export default async function TopMenu() {
 
@@ -20,7 +20,7 @@ export default async function TopMenu() {
       <div className="h-full hover:bg-gray-700 rounded-lg m-3">
       {
         session?
-        <Link href="/api/auth/signin" className="h-full">
+        <Link href="/api/auth/signout" className="h-full">
           <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
             Log Out
           </div>
