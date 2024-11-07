@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image"
 
-export default function RestaurantCard({imgSrc,restaurantName,foodtype}:{imgSrc:string,restaurantName:string,foodtype:string}) {
+export default function RestaurantCard({imgSrc,restaurantName,foodtype,isAdmin}:{imgSrc:string,restaurantName:string,foodtype:string,isAdmin:boolean}) {
     return(
         <div className="font-sans mx-3 bg-gray-200 text-xl max-w-3xl h-40 flex flex-row rounded-xl w-full hover:bg-gray-300 hover:shadow-xl">
             <div className="relative h-full w-1/3">
@@ -10,6 +10,12 @@ export default function RestaurantCard({imgSrc,restaurantName,foodtype}:{imgSrc:
             <div className="flex flex-col m-5">
                 <div className="font-bold text-3xl m-2">{restaurantName}</div>
                 <div className="font-light text-lg m-2">{foodtype} Food</div>
+                {
+                    isAdmin?
+                    <div className="font-light text-lg m-2">Admin</div>
+                    :
+                    <div className="font-light text-lg m-2">User</div>
+                }
             </div>
         </div>
     )
