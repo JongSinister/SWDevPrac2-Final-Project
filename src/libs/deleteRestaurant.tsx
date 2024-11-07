@@ -12,6 +12,9 @@ export default async function deleteRestaurant(id: string) {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${session.user.token}`,
+          "Content-Type": "application/json",
+          "Cache-Control":
+            "no-store, no-cache, must-revalidate, proxy-revalidate", // Prevent caching
         },
       }
     );

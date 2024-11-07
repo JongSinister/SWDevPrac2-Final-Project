@@ -5,12 +5,15 @@ export default async function getRestaurants() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Cache-Control": "no-cache", // Prevent caching
+        "Cache-Control":
+          "no-store, no-cache, must-revalidate, proxy-revalidate", // Prevent caching
       },
     }
   );
+
   if (!response.ok) {
     throw new Error("Failed to fetch restaurants");
   }
+
   return await response.json();
 }

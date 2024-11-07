@@ -5,7 +5,8 @@ export default async function getRestaurant(id: string) {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Cache-Control": "no-cache", // Prevent caching
+        "Cache-Control":
+          "no-store, no-cache, must-revalidate, proxy-revalidate", // Prevent caching
       },
     }
   );

@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import deleteRestaurant from "@/libs/deleteRestaurant";
+import { unstable_noStore as noStore } from "next/cache";
 
 export default function RestaurantCard({
   id,
