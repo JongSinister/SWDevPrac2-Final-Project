@@ -10,7 +10,8 @@ export default async function restaurants(){
     return(
         <div className="font-sans m-6 text-3xl font-bold">
             Restaurants
-            <RestaurantCard/>          
+            <RestaurantCard imgSrc="https://drive.google.com/uc?id=1gx8WSQ3kByzVs8eQs3o5DPqsWTSrzvLE" 
+                            restaurantName="Mama Paradox" foodtype="Japanese"/>          
         </div>
     )
 
