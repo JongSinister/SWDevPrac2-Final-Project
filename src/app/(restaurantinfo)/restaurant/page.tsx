@@ -1,11 +1,9 @@
-'use client'
-
 import RestaurantCard from "@/components/RestaurantCard";
 import getRestaurants from "@/libs/getRestaurants";
 
-export default async function restaurants(){
+export default function restaurants(){
     
-    const restaurants = await getRestaurants();
+    const restaurants = getRestaurants();
 
     return(
         <div className="font-sans m-6 text-3xl font-bold">
