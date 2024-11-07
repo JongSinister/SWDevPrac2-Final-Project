@@ -1,9 +1,12 @@
 import Link from "next/link";
 import RestaurantCard from "./RestaurantCard";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export default async function RestaurantSelector({restaurants}:{restaurants:Promise<RestaurantJSON>}) {
 
     const restaurantList = await restaurants;
+    const session = await getServerSession(authOptions);
     
     return (
         <div className="flex flex-col m-5 w-full justify-center">
