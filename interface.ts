@@ -10,3 +10,10 @@ interface RestaurantItem{
     __v: number,
     id: string
 }
+
+interface RestaurantJSON {
+    success: boolean,
+    count: number,
+    pagination: Object,
+    data: RestaurantItem[]
+  }
