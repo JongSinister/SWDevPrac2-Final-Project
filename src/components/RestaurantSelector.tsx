@@ -30,7 +30,7 @@ export default async function RestaurantSelector({restaurants}:{restaurants:Prom
     return (
         <div className="flex flex-col m-5 w-full justify-center">
         {restaurantList.data.map((restaurant) => (
-            <Link href={`/restaurant/${restaurant.id}`} key={restaurant.id} className="my-2 flex justify-center w-full">
+            <Link href={`/restaurant/${restaurant.id}`} target="_blank" key={restaurant.id} className="my-2 flex justify-center w-full">
                 <RestaurantCard
                 imgSrc={restaurant.picture}
                 restaurantName={restaurant.name}
