@@ -1,5 +1,6 @@
 'use client'
 
+import RestaurantCard from "@/components/RestaurantCard";
 import getRestaurants from "@/libs/getRestaurants";
 
 export default async function restaurants(){
@@ -8,7 +9,8 @@ export default async function restaurants(){
 
     return(
         <div className="font-sans m-6">
-            Restaurants           
+            Restaurants
+            <RestaurantCard/>          
         </div>
     )
 
