@@ -11,9 +11,11 @@ export default function restaurants(){
     return(
         <div className="font-sans m-6 text-3xl font-bold">
             Restaurants
-            <Suspense fallback={<p>Loading ... <LinearProgress/> </p>}>
-            {restaurants && <RestaurantSelector restaurants={restaurants}/>}
-            </Suspense>
+            <div className="flex justify-center">
+                <Suspense fallback={<p>Loading ... <LinearProgress/> </p>}>
+                {restaurants && <RestaurantSelector restaurants={restaurants}/>}
+                </Suspense>
+            </div>
         </div>
     )
 
