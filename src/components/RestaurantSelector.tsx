@@ -6,9 +6,9 @@ export default async function RestaurantSelector({restaurants}:{restaurants:Prom
     const restaurantList = await restaurants;
     
     return (
-        <div className="flex flex-col m-5">
+        <div className="flex flex-col m-5 w-full justify-center">
         {restaurantList.data.map((restaurant) => (
-            <Link href={`/restaurant/${restaurant.id}`} key={restaurant.id} className="my-2">
+            <Link href={`/restaurant/${restaurant.id}`} key={restaurant.id} className="my-2 flex justify-center w-full">
                 <RestaurantCard
                 imgSrc={restaurant.picture}
                 restaurantName={restaurant.name}
