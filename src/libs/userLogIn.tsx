@@ -13,6 +13,5 @@ export default async function userLogin(userEmail: string, userPassword: string)
     if(!response.ok){
         throw new Error("Failed to login")
     }
-    console.log(response)
     return await response.json()
 }
