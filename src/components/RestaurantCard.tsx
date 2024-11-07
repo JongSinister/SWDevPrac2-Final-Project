@@ -2,7 +2,7 @@
 
 export default function RestaurantCard() {
     return(
-        <div className="font-sans m-3 bg-gray-400">
+        <div className="font-sans m-3 bg-gray-400 text-xl">
             RestaurantCard
         </div>
     )
