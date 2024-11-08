@@ -1,10 +1,11 @@
 'use client'
 import { useState } from "react";
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { IconButton, InputAdornment } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import Register from "@/libs/userRegister";
 
-export default function Register() {
+export default function RegisterPage() {
     
     const [name, setName] = useState<string>('');
     const [phoneNumber, setPhoneNumber] = useState<string>('');
@@ -57,7 +58,12 @@ export default function Register() {
                     ),
                   }}
                   placeholder="******" variant="standard"/>
-
+            <Button className="w-40 bg-gray-800 m-7 text-white hover:bg-gray-600 hover:shadow-xl" 
+                onClick={()=>{
+                    Register(name,phoneNumber,userEmail,password);
+                }}>
+                Register
+            </Button>
             </div>
     </div>
     )
