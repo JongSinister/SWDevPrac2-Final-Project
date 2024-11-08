@@ -18,6 +18,22 @@ export default async function TopMenu() {
       </div>
 
       <div className="h-full hover:bg-gray-700 rounded-lg m-3">
+        <Link href="/booking">
+          <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
+            Booking
+          </div>
+        </Link>
+      </div>
+
+      <div className="h-full hover:bg-gray-700 rounded-lg m-3">
+        <Link href="/restaurant">
+          <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
+            Restaurants
+          </div>
+        </Link>
+      </div>
+
+      <div className="h-full hover:bg-gray-700 rounded-lg m-3 ml-auto">
       {
         session?
         <Link href="/api/auth/signout" className="h-full">
@@ -35,19 +51,15 @@ export default async function TopMenu() {
       </div>
 
       <div className="h-full hover:bg-gray-700 rounded-lg m-3">
-        <Link href="/booking">
-          <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
-            Booking
-          </div>
-        </Link>
-      </div>
-
-      <div className="h-full hover:bg-gray-700 rounded-lg m-3">
-        <Link href="/restaurant">
-          <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
-            Restaurants
-          </div>
-        </Link>
+        {
+          session?
+          null:
+          <Link href="/register">
+            <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
+              Register
+            </div>
+          </Link>
+        }
       </div>
 
     </div>
