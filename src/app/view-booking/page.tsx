@@ -10,8 +10,8 @@ export default function viewBookingPage(){
                 {/* <Suspense fallback={<p>Loading ... <LinearProgress/> </p>}>
                 {restaurants && <RestaurantSelector restaurants={restaurants}/>}
                 </Suspense> */}
-                <BookingCard bookingDate={new Date()} restaurantName="" restaurantTel="" 
-                            restaurantID="672dfaa2d7821c2e36b8212e" address="" 
+                <BookingCard bookingDate={new Date()} restaurantName="MK" restaurantTel="1234567890" 
+                            restaurantID="672dfaa2d7821c2e36b8212e" address="Siam Paragon" 
                             numOfGuests={3}/>
             </div>
         </div>
