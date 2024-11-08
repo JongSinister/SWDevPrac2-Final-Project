@@ -6,7 +6,7 @@ export default async function createBookings(restaurantId: string,bookingDate: s
     const session = await getServerSession(authOptions);
 
     const response = await fetch(
-      `https://restaurant-booking-project-backend.vercel.app/api/v1/restaurants/${restaurantId}bookings`,{
+      `https://restaurant-booking-project-backend.vercel.app/api/v1/restaurants/${restaurantId}/bookings`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json",
