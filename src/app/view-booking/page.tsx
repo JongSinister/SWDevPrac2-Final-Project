@@ -15,9 +15,6 @@ export default async function viewBookingPage(){
                 <Suspense fallback={<p>Loading ... <LinearProgress/> </p>}>
                 {bookings && <BookingList bookings={bookings}/>}
                 </Suspense>
-                {/* <BookingCard bookingDate={new Date()} restaurantName="MK" restaurantTel="1234567890" 
-                            restaurantID="672dfaa2d7821c2e36b8212e" address="Siam Paragon" 
-                            numOfGuests={3}/> */}
             </div>
         </div>
     )
