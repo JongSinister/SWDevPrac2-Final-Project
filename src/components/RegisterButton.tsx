@@ -22,7 +22,7 @@ export default function RegisterButton({ name, phoneNumber, userEmail, password 
                 });
 
                 if (!loginResponse?.ok) {
-                    alert("Login failed. Please try logging in manually.");
+                    alert("Auto login failed. Please try logging in manually.");
                 }
                 console.log(loginResponse);
                 router.push('/');
