@@ -18,17 +18,25 @@ export default async function TopMenu() {
       </div>
 
       <div className="h-full hover:bg-gray-700 rounded-lg m-3">
-        <Link href="/booking">
+        <Link href="/restaurant">
           <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
-            Booking
+            Restaurants
           </div>
         </Link>
       </div>
 
       <div className="h-full hover:bg-gray-700 rounded-lg m-3">
-        <Link href="/restaurant">
+        <Link href="/booking">
           <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
-            Restaurants
+            Book Now
+          </div>
+        </Link>
+      </div>
+
+      <div className="h-full hover:bg-gray-700 rounded-lg m-3">
+        <Link href="/view-booking">
+          <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
+            View Bookings
           </div>
         </Link>
       </div>
