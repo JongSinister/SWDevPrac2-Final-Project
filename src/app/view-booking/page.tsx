@@ -8,8 +8,11 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions"
 
 export default async function viewBookingPage(){
 
-    const bookings=await getBookings()
     const session = await getServerSession(authOptions);
+    let bookings = null;
+    if(session){
+        bookings=await getBookings()
+    }
 
     return (
         <div className="font-sans m-6 text-3xl font-bold">
