@@ -1,6 +1,8 @@
 'use client'
 import { useState } from "react";
 import { TextField } from "@mui/material";
+import { IconButton, InputAdornment } from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 export default function Register() {
     
@@ -8,6 +10,13 @@ export default function Register() {
     const [phoneNumber, setPhoneNumber] = useState<string>('');
     const [userEmail, setUserEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+
+    const handleClickShowPassword = () => setShowPassword(!showPassword);
+    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+      };      
+
 
     return(
         <div className="m-5">
@@ -33,7 +42,20 @@ export default function Register() {
 
             Password : 
             <TextField name="Password" value={password} className="min-w-64 max-w-xl mb-10"
-                  onChange={(e)=>{setPassword(e.target.value)}} type="password"
+                  onChange={(e)=>{setPassword(e.target.value)}} type={showPassword ? 'text' : 'password'}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          edge="end"
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
                   placeholder="******" variant="standard"/>
 
       </div>
