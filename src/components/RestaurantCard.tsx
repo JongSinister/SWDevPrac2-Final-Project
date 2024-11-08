@@ -47,9 +47,7 @@ export default function RestaurantCard({
           >
             Delete
           </button>
-        ) : (
-          <div className="font-light text-lg m-2">Not Admin</div>
-        )}
+        ) : null}
       </div>
     </div>
   );
