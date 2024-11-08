@@ -25,7 +25,7 @@ export default function reservations() {
       return;
     }
     const formattedDate = dayjs(bookingDate).format('YYYY-MM-DD')
-    const createdAt = dayjs().format('YYYY-MM-DD HH:mm:ss')
+    const createdAt = dayjs().format('YYYY-MM-DD')
     const restaurantId = selectedOption;
 
     const response= await createBookings(restaurantId,formattedDate,createdAt,parseInt(numberOfPeople));
