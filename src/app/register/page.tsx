@@ -24,24 +24,24 @@ export default function Register() {
                 Register
             </div>
       
-        <div className="mx-20 flex flex-col font-sans font-bold text-xl w-full my-5">
+            <div className="mx-20 flex flex-col font-sans font-bold text-xl w-full my-5">
 
-            Name :
-            <TextField name="Name" className="min-w-64 max-w-xl mb-10" variant="standard" placeholder="Name"
-                            value={name} onChange={(e)=>{setName(e.target.value)}}/>
+                Name :
+                <TextField name="Name" className="min-w-64 max-w-xl mb-10" variant="standard" placeholder="Name" 
+                    value={name} onChange={(e)=>{setName(e.target.value)}}/>
 
-            Telephone Number : 
-            <TextField name="PhoneNumber" className="min-w-64 max-w-xl mb-10" 
+                Telephone Number : 
+                <TextField name="PhoneNumber" className="min-w-64 max-w-xl mb-10" 
                   type="tel" value={phoneNumber} onChange={(e)=>{setPhoneNumber(e.target.value)}} 
                   placeholder="000-000-0000" variant="standard"/>
 
-            Email : 
-            <TextField name="Email" value={userEmail} className="min-w-64 max-w-xl mb-10"
+                Email : 
+                <TextField name="Email" value={userEmail} className="min-w-64 max-w-xl mb-10"
                   onChange={(e)=>{setUserEmail(e.target.value)}}
                   placeholder="user@gmail.com" variant="standard"/>
 
-            Password : 
-            <TextField name="Password" value={password} className="min-w-64 max-w-xl mb-10"
+                Password : 
+                <TextField name="Password" value={password} className="min-w-64 max-w-xl mb-10"
                   onChange={(e)=>{setPassword(e.target.value)}} type={showPassword ? 'text' : 'password'}
                   InputProps={{
                     endAdornment: (
@@ -58,7 +58,7 @@ export default function Register() {
                   }}
                   placeholder="******" variant="standard"/>
 
-      </div>
+            </div>
     </div>
     )
 }
