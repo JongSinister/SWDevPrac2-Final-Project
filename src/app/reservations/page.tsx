@@ -5,9 +5,14 @@ import { Dayjs } from "dayjs";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import BookingDateAndTime from "@/components/BookingDateAndTime";
 import { TextField } from "@mui/material";
+import { useEffect } from "react";
+import getRestaurants from "@/libs/getRestaurants";
+import {Select, MenuItem} from "@mui/material";
 
 export default function reservations() {
 
+  const [options, setOptions] = useState([]);
+  const [selectedOption, setSelectedOption] = useState('');
   const [bookingDate, setBookingDate] = useState<Dayjs | null>(null);
   const [bookingTime, setBookingTime] = useState<Dayjs | null>(null);
   const [name, setName] = useState<string>('');
@@ -22,6 +27,25 @@ export default function reservations() {
     const formattedDate = dayjs(bookingDate).format('YYYY-MM-DD')
     const createdAt = dayjs().format('YYYY-MM-DD HH:mm:ss')
   }
+
+  const [restaurantList, setRestaurantList] = useState<RestaurantItem[]>([]);
+
+  const fetchRestaurants = async () => {
+    const restaurants = await getRestaurants();
+    setRestaurantList(restaurants.data);
+  }
+
+  const handleDelete = (restaurantId: string) => {
+    setRestaurantList((prev) => prev.filter((r) => r.id !== restaurantId));
+  }
+  
+  useEffect(() => {
+    fetchRestaurants();
+  }, []);
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedOption(event.target.value);
+  };  
 
   return (
     <div className="m-5">
@@ -43,6 +67,14 @@ export default function reservations() {
         <TextField name="PhoneNumber" label="Phone Number" className="min-w-64 max-w-xl mb-10" 
                   type="tel" value={phoneNumber} onChange={(e)=>{setPhoneNumber(e.target.value)}} 
                   placeholder="000-000-0000" variant="standard"/>
+        
+        Select Restaurant
+        <Select variant="standard" id="hospital" label="hospital" className="mb-10 min-w-64 max-w-xl"
+                        value={selectedOption} onChange={(e) => {setSelectedOption(e.target.value)}}>
+          <MenuItem value="Chula">Chulalongkorn Hospital</MenuItem>
+          <MenuItem value="Rajavithi">Rajavithi Hospital</MenuItem>
+          <MenuItem value="Thammasat">Thammasat University Hospital</MenuItem>
+        </Select>
 
         <BookingDateAndTime onDateChange={(value:Dayjs) => { setBookingDate(value) }} 
                           onTimeChange={(value:Dayjs) => { setBookingTime(value) }} />
