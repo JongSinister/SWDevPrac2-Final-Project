@@ -33,7 +33,7 @@ export default async function TopMenu() {
         </Link>
       </div>
 
-      <div className="h-full hover:bg-gray-700 rounded-lg m-3 right-0">
+      <div className="h-full hover:bg-gray-700 rounded-lg m-3 ml-auto">
       {
         session?
         <Link href="/api/auth/signout" className="h-full">
