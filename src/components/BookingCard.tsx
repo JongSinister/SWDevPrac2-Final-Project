@@ -23,7 +23,7 @@ export default function BookingCard({bookingDate,restaurantName,address,restaura
                         </div>
                     </div>
                     <div className="mx-10 flex flex-col w-1/2 h-full justify-between">
-                        <div className="text-xl">
+                        <div className="my-3">
                         </div>
                         <div className="flex flex-row">
                             <Image src="/img/phone-call.png" alt="" width={30} height={30} className="mr-6" />
