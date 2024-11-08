@@ -10,7 +10,7 @@ export default function BookingCard({bookingDate,restaurantName,address,restaura
                 <div className="flex flex-row h-full p-6">
                     <div className="mx-10 flex flex-col w-1/2 h-full justify-between">
                         <div className="flex flex-row">
-                            <Image src="/img/calender.png" alt="" width={30} height={30} className="mr-6" />
+                            <Image src="/img/date.png" alt="" width={30} height={30} className="mr-6" />
                             {bookingDate.toDateString()}
                         </div>
                         <div className="flex flex-row">
@@ -20,6 +20,18 @@ export default function BookingCard({bookingDate,restaurantName,address,restaura
                         <div className="flex flex-row">
                             <Image src="/img/location-pin.png" alt="" width={30} height={30} className="mr-6" />
                             {address}
+                        </div>
+                    </div>
+                    <div className="mx-10 flex flex-col w-1/2 h-full justify-between">
+                        <div className="text-xl">
+                        </div>
+                        <div className="flex flex-row">
+                            <Image src="/img/phone-call.png" alt="" width={30} height={30} className="mr-6" />
+                            {restaurantTel}
+                        </div>
+                        <div className="flex flex-row">
+                            <Image src="/img/guests.png" alt="" width={30} height={30} className="mr-6" />
+                            {numOfGuests.toString()}
                         </div>
                     </div>
                 </div>
