@@ -6,7 +6,7 @@ export default function viewBookingPage(){
     return (
         <div className="font-sans m-6 text-3xl font-bold">
             View Bookings
-            <div className="flex justify-center">
+            <div className="flex justify-center m-10">
                 {/* <Suspense fallback={<p>Loading ... <LinearProgress/> </p>}>
                 {restaurants && <RestaurantSelector restaurants={restaurants}/>}
                 </Suspense> */}
