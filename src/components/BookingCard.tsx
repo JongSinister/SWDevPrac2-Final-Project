@@ -7,22 +7,22 @@ export default function BookingCard({bookingDate,restaurantName,address,restaura
     return(
         <div className="font-sans mx-3 bg-gray-200 text-xl max-w-3xl h-40 flex flex-row rounded-xl w-full hover:bg-gray-300 hover:shadow-xl">
             <Link href={`/restaurant/${restaurantID}`} className="w-full h-full">
-                <div className="flex flex-row h-full p-6">
-                    <div className="mx-10 flex flex-col w-1/2 h-full justify-between">
+                <div className="flex flex-row h-full py-6">
+                    <div className="ml-10 flex flex-col w-2/3 h-full justify-between">
                         <div className="flex flex-row">
                             <Image src="/img/date.png" alt="" width={30} height={30} className="mr-6" />
-                            {bookingDate.toDateString()}
+                            Date : {bookingDate.toDateString()}
                         </div>
                         <div className="flex flex-row">
                             <Image src="/img/cutlery.png" alt="" width={30} height={30} className="mr-6" />
-                            {restaurantName}
+                            Restaurant : {restaurantName}
                         </div>
                         <div className="flex flex-row">
                             <Image src="/img/location-pin.png" alt="" width={30} height={30} className="mr-6" />
                             {address}
                         </div>
                     </div>
-                    <div className="mx-10 flex flex-col w-1/2 h-full justify-between">
+                    <div className="flex flex-col w-1/3 h-full justify-between">
                         <div className="my-3">
                         </div>
                         <div className="flex flex-row">
