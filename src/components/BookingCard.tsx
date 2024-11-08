@@ -9,13 +9,16 @@ export default function BookingCard({bookingDate,restaurantName,address,restaura
             <Link href={`/restaurant/${restaurantID}`} className="w-full h-full">
                 <div className="flex flex-row h-full p-6">
                     <div className="mx-10 flex flex-col w-1/2 h-full justify-between">
-                        <div>
+                        <div className="flex flex-row">
+                            <Image src="/img/calender.png" alt="" width={30} height={30} className="mr-6" />
                             {bookingDate.toDateString()}
                         </div>
-                        <div>
+                        <div className="flex flex-row">
+                            <Image src="/img/cutlery.png" alt="" width={30} height={30} className="mr-6" />
                             {restaurantName}
                         </div>
-                        <div>
+                        <div className="flex flex-row">
+                            <Image src="/img/location-pin.png" alt="" width={30} height={30} className="mr-6" />
                             {address}
                         </div>
                     </div>
