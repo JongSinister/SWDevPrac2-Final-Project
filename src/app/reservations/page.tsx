@@ -33,7 +33,6 @@ export default function reservations() {
       console.log(response);
       alert("Reservation created successfully");
     }else{
-      alert(response)
       alert("Failed to create reservation");
     }
   }
@@ -69,7 +68,7 @@ export default function reservations() {
         Telephone Number
         <TextField name="PhoneNumber" label="Phone Number" className="min-w-64 max-w-xl mb-10" 
                   type="tel" value={phoneNumber} onChange={(e)=>{setPhoneNumber(e.target.value)}} 
-                  placeholder="000-000-0000" variant="standard"/>
+                  placeholder="0123456789" variant="standard"/>
         
         Select Restaurant
         <Select variant="standard" id="hospital" label="hospital" className="mb-10 min-w-64 max-w-xl"
