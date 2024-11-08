@@ -4,6 +4,7 @@ import { Button, TextField } from "@mui/material";
 import { IconButton, InputAdornment } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import Register from "@/libs/userRegister";
+import RegisterButton from "@/components/RegisterButton";
 
 export default function RegisterPage() {
     
@@ -58,12 +59,7 @@ export default function RegisterPage() {
                     ),
                   }}
                   placeholder="******" variant="standard"/>
-            <Button className="w-40 bg-gray-800 m-7 p-3 text-white hover:bg-gray-600 hover:shadow-xl text-xl font-sans font-bold" 
-                onClick={()=>{
-                    Register(name,phoneNumber,userEmail,password);
-                }}>
-                Register
-            </Button>
+            <RegisterButton name={name} phoneNumber={phoneNumber} userEmail={userEmail} password={password}/>
             </div>
     </div>
     )
