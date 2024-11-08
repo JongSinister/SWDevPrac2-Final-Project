@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import { Button } from '@mui/material';
 import Register from '@/libs/userRegister';
-
+import { signIn } from 'next-auth/react';
 
 export default function RegisterButton({ name, phoneNumber, userEmail, password }:{name:string, phoneNumber:string, userEmail:string, password:string}) {
     
@@ -12,8 +12,21 @@ export default function RegisterButton({ name, phoneNumber, userEmail, password 
         try {
             const response = await Register(name, phoneNumber, userEmail, password);
 
+            //auto login after registration
+
             if (response.success) {
+                const loginResponse = await signIn('credentials', {
+                    redirect: false,
+                    email: userEmail,
+                    password: password,
+                });
+
+                if (!loginResponse?.ok) {
+                    alert("Login failed. Please try logging in manually.");
+                }
+                console.log(loginResponse);
                 router.push('/');
+                
             } else {
                 alert(response.message || "Registration failed. Please try again.");
             }
