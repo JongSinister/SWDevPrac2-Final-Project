@@ -8,6 +8,7 @@ import { TextField } from "@mui/material";
 import { useEffect } from "react";
 import getRestaurants from "@/libs/getRestaurants";
 import {Select, MenuItem} from "@mui/material";
+import createBookings from "@/libs/createReservation";
 
 export default function reservations() {
 
@@ -19,13 +20,22 @@ export default function reservations() {
   const [phoneNumber, setPhoneNumber] = useState<string>('');
 
   const makeReservation = async () => {
-    if (!bookingDate || !bookingTime || !name || !phoneNumber) {
+    if (!bookingDate || !bookingTime || !name || !phoneNumber || !numberOfPeople || !selectedOption) {
       alert("Please fill in all fields");
       return;
     }
     const formattedDate = dayjs(bookingDate).format('YYYY-MM-DD')
     const createdAt = dayjs().format('YYYY-MM-DD HH:mm:ss')
     const restaurantId = selectedOption;
+
+    const response= await createBookings(restaurantId,formattedDate,createdAt,parseInt(numberOfPeople));
+    if(response.success){
+      console.log(response);
+      alert("Reservation created successfully");
+    }else{
+      alert(response)
+      alert("Failed to create reservation");
+    }
   }
 
   const [restaurantList, setRestaurantList] = useState<RestaurantItem[]>([]);

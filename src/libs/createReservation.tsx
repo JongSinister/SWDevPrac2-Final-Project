@@ -1,8 +1,8 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 
-export default async function getBookings(restaurantId: string,bookingDate: string,createdAt: string,numOfGuests: number) {
-    
+export default async function createBookings(restaurantId: string,bookingDate: string,createdAt: string,numOfGuests: number) {
+
     const session = await getServerSession(authOptions);
 
     const response = await fetch(
