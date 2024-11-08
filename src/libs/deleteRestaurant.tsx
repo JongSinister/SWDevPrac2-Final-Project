@@ -18,7 +18,7 @@ export default async function deleteRestaurant(id: string) {
         },
       }
     );
-    console.log(id);
+    console.log(`Success fully delete Restaurant id : ${id}`);
     return await response.json();
   } catch (error) {
     console.error(error);

@@ -9,13 +9,20 @@ export default function RestaurantCard({
   restaurantName,
   foodtype,
   isAdmin,
+  onDelete,
 }: {
   id: string;
   imgSrc: string;
   restaurantName: string;
   foodtype: string;
   isAdmin: boolean;
+  onDelete: (restaurantId: string) => void;
 }) {
+  const handleDelete = async () => {
+    await deleteRestaurant(id);
+    onDelete(id);
+  };
+
   return (
     <div className="font-sans mx-3 bg-gray-200 text-xl max-w-3xl h-40 flex flex-row rounded-xl w-full hover:bg-gray-300 hover:shadow-xl">
       <div className="relative h-full w-1/3">
@@ -31,9 +38,9 @@ export default function RestaurantCard({
         <div className="font-light text-lg m-2">{foodtype} Food</div>
         {isAdmin ? (
           <button
-            className="font-normal text-lg m-2 bg-red-600 rounded-md w-15 hover:bg-red-700"
+            className="font-normal w-20 text-lg m-2 text-white bg-red-500 rounded-md hover:bg-red-700"
             onClick={(e) => {
-              deleteRestaurant(id);
+              handleDelete();
               e.preventDefault();
               e.stopPropagation();
             }}
