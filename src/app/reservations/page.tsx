@@ -14,6 +14,15 @@ export default function reservations() {
   const [numberOfPeople, setNumberOfPeople] = useState<string>("1");
   const [phoneNumber, setPhoneNumber] = useState<string>('');
 
+  const makeReservation = async () => {
+    if (!bookingDate || !bookingTime || !name || !phoneNumber) {
+      alert("Please fill in all fields");
+      return;
+    }
+    const formattedDate = dayjs(bookingDate).format('YYYY-MM-DD')
+    const createdAt = dayjs().format('YYYY-MM-DD HH:mm:ss')
+  }
+
   return (
     <div className="m-5">
       <div className="text-5xl font-sans font-bold">
@@ -38,7 +47,8 @@ export default function reservations() {
         <BookingDateAndTime onDateChange={(value:Dayjs) => { setBookingDate(value) }} 
                           onTimeChange={(value:Dayjs) => { setBookingTime(value) }} />
       </div>
-      <button className="bg-gray-800 p-4 mx-20 text-xl font-bold font-sans text-cyan-600 rounded-xl hover:bg-gray-700">
+      <button className="bg-gray-800 p-4 mx-20 text-xl font-bold font-sans text-cyan-600 rounded-xl hover:bg-gray-700"
+              onClick={makeReservation}>
           Reserve
       </button>
     </div>
