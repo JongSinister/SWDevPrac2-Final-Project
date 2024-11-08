@@ -35,7 +35,7 @@ export default function RegisterPage() {
                 Telephone Number : 
                 <TextField name="PhoneNumber" className="min-w-64 max-w-xl mb-10" 
                   type="tel" value={phoneNumber} onChange={(e)=>{setPhoneNumber(e.target.value)}} 
-                  placeholder="000-000-0000" variant="standard"/>
+                  placeholder="0987654321" variant="standard"/>
 
                 Email : 
                 <TextField name="Email" value={userEmail} className="min-w-64 max-w-xl mb-10"
