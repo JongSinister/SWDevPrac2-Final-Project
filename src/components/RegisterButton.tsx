@@ -26,6 +26,7 @@ export default function RegisterButton({ name, phoneNumber, userEmail, password 
                 }
                 console.log(loginResponse);
                 router.push('/');
+                router.refresh();
                 
             } else {
                 alert(response.message || "Registration failed. Please try again.");
