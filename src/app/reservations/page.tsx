@@ -11,7 +11,6 @@ import {Select, MenuItem} from "@mui/material";
 
 export default function reservations() {
 
-  const [options, setOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState('');
   const [bookingDate, setBookingDate] = useState<Dayjs | null>(null);
   const [bookingTime, setBookingTime] = useState<Dayjs | null>(null);
@@ -26,26 +25,20 @@ export default function reservations() {
     }
     const formattedDate = dayjs(bookingDate).format('YYYY-MM-DD')
     const createdAt = dayjs().format('YYYY-MM-DD HH:mm:ss')
+    const restaurantId = selectedOption;
   }
 
   const [restaurantList, setRestaurantList] = useState<RestaurantItem[]>([]);
 
+  //get value of restaurants
   const fetchRestaurants = async () => {
     const restaurants = await getRestaurants();
     setRestaurantList(restaurants.data);
-  }
-
-  const handleDelete = (restaurantId: string) => {
-    setRestaurantList((prev) => prev.filter((r) => r.id !== restaurantId));
   }
   
   useEffect(() => {
     fetchRestaurants();
   }, []);
-
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(event.target.value);
-  };  
 
   return (
     <div className="m-5">
@@ -71,9 +64,14 @@ export default function reservations() {
         Select Restaurant
         <Select variant="standard" id="hospital" label="hospital" className="mb-10 min-w-64 max-w-xl"
                         value={selectedOption} onChange={(e) => {setSelectedOption(e.target.value)}}>
-          <MenuItem value="Chula">Chulalongkorn Hospital</MenuItem>
+          {/* <MenuItem value="Chula">Chulalongkorn Hospital</MenuItem>
           <MenuItem value="Rajavithi">Rajavithi Hospital</MenuItem>
-          <MenuItem value="Thammasat">Thammasat University Hospital</MenuItem>
+          <MenuItem value="Thammasat">Thammasat University Hospital</MenuItem> */}
+          {
+            restaurantList.map((restaurant) => (
+              <MenuItem value={restaurant.id}>{restaurant.name}</MenuItem>
+            ))
+          }
         </Select>
 
         <BookingDateAndTime onDateChange={(value:Dayjs) => { setBookingDate(value) }} 
