@@ -2,11 +2,11 @@ import { Suspense } from "react"
 import { LinearProgress } from "@mui/material"
 import BookingCard from "@/components/BookingCard"
 import getBookings from "@/libs/getBookings"
-import BookingList from "@/components/BookingList"
 import { getServerSession } from "next-auth"
+import ReservationsList from "@/components/BookingList"
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions"
 
-export default async function viewBookingPage(){
+export default async function viewReservationsPage(){
 
     const session = await getServerSession(authOptions);
     let bookings = null;
@@ -20,17 +20,17 @@ export default async function viewBookingPage(){
                 session ? (
                     <div>
                         <div className="font-sans m-6 text-3xl font-bold">
-                            View Bookings
+                            View Reservations
                         </div>
                         <div className="flex justify-center m-10">
                             <Suspense fallback={<p>Loading ... <LinearProgress/> </p>}>
-                            {bookings && <BookingList bookings={bookings}/>}
+                            {bookings && <ReservationsList reservations={bookings}/>}
                             </Suspense>
                         </div>
                     </div>
                 ):(
                     <div className="font-sans m-6 text-3xl font-bold">
-                        Please login to view bookings.
+                        Please login to view reservations.
                     </div>
                 )
             }

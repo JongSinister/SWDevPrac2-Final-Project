@@ -6,7 +6,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import BookingDateAndTime from "@/components/BookingDateAndTime";
 import { TextField } from "@mui/material";
 
-export default function bookings() {
+export default function reservations() {
 
   const [bookingDate, setBookingDate] = useState<Dayjs | null>(null);
   const [bookingTime, setBookingTime] = useState<Dayjs | null>(null);

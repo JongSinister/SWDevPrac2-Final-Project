@@ -1,10 +1,10 @@
-import BookingCard from "./BookingCard";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
+import ReservationCard from "./BookingCard";
 
-export default async function BookingList({bookings}:{bookings:Promise<BookingJSON>}) {
+export default async function ReservationsList({reservations}:{reservations:Promise<BookingJSON>}) {
 
-    const bookingList = await bookings;
+    const bookingList = await reservations;
     const session = await getServerSession(authOptions);
 
     return (
@@ -12,7 +12,7 @@ export default async function BookingList({bookings}:{bookings:Promise<BookingJS
             { 
                 session ? (
                     bookingList.data.map((booking) => (
-                    <BookingCard
+                    <ReservationCard
                         bookingDate={new Date(booking.bookingDate)}
                         restaurantName={booking.restaurant.name}
                         address={booking.restaurant.address}
@@ -23,7 +23,7 @@ export default async function BookingList({bookings}:{bookings:Promise<BookingJS
                     ))
                 ) : (
                     <div className="text-center text-red-500 text-3xl">
-                        Please login to view bookings.
+                        Please login to view Reservations.
                     </div>
                 )
             }
