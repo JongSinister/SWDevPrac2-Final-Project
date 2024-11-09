@@ -73,9 +73,6 @@ export default function reservations() {
         Select Restaurant
         <Select variant="standard" id="hospital" label="hospital" className="mb-10 min-w-64 max-w-xl"
                         value={selectedOption} onChange={(e) => {setSelectedOption(e.target.value)}}>
-          {/* <MenuItem value="Chula">Chulalongkorn Hospital</MenuItem>
-          <MenuItem value="Rajavithi">Rajavithi Hospital</MenuItem>
-          <MenuItem value="Thammasat">Thammasat University Hospital</MenuItem> */}
           {
             restaurantList.map((restaurant) => (
               <MenuItem value={restaurant.id}>{restaurant.name}</MenuItem>
