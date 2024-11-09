@@ -16,4 +16,29 @@ interface RestaurantJSON {
     count: number,
     pagination: Object,
     data: RestaurantItem[]
-  }
+}
+
+interface restaurantItem{
+    _id: string,
+    name: string,
+    address: string,
+    tel: string,
+    id: string
+}
+
+interface BookingItem{
+    _id: string,
+    bookingDate: string,
+    numOfGuests: number,
+    user: string,
+    restaurant: restaurantItem,
+    createdAt: string,
+    id: string
+}
+
+interface BookingJSON {
+    success: boolean,
+    count: number,
+    pagination: Object,
+    data: BookingItem[]
+}
