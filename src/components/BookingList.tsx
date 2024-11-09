@@ -13,6 +13,7 @@ export default async function ReservationsList({reservations}:{reservations:Prom
                 session ? (
                     bookingList.data.map((booking) => (
                     <ReservationCard
+                        bookingID={booking._id}
                         bookingDate={new Date(booking.bookingDate)}
                         restaurantName={booking.restaurant.name}
                         address={booking.restaurant.address}
