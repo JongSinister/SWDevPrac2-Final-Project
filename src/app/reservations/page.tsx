@@ -35,7 +35,10 @@ export default function reservations() {
       console.log(response);
       alert("Reservation created successfully");
       router.push("/");
-    }else{
+    }else if(response.message){
+      alert(response.message);
+    }
+    else{
       alert("Failed to create reservation");
     }
   }
@@ -55,7 +58,7 @@ export default function reservations() {
   return (
     <div className="m-5">
       <div className="text-5xl font-sans font-bold">
-        Book Your Best Restaurant
+        Reserve Your Best Restaurant
       </div>
       <div className="mx-20 flex flex-col font-sans font-bold text-xl w-full my-5">
 
