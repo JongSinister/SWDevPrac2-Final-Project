@@ -29,7 +29,7 @@ interface restaurantItem{
 interface BookingItem{
     _id: string,
     bookingDate: string,
-    numberOfGuests: number,
+    numOfGuests: number,
     user: string,
     restaurant: restaurantItem,
     createdAt: string,

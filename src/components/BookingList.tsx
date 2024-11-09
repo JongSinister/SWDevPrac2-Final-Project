@@ -17,7 +17,7 @@ export default async function ReservationsList({reservations}:{reservations:Prom
                         restaurantName={booking.restaurant.name}
                         address={booking.restaurant.address}
                         restaurantTel={booking.restaurant.tel}
-                        numOfGuests={booking.numberOfGuests}
+                        numOfGuests={booking.numOfGuests}
                         restaurantID={booking.restaurant.id}
                     />
                     ))
