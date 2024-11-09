@@ -31,7 +31,7 @@ export default function ReservationCard({bookingDate,restaurantName,address,rest
                         </div>
                         <div className="flex flex-row">
                             <Image src="/img/guests.png" alt="" width={30} height={30} className="mr-6" />
-                            {numOfGuests.toString()}
+                            {numOfGuests.toString()} Guests
                         </div>
                     </div>
                 </div>
