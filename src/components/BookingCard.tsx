@@ -2,11 +2,11 @@
 import Image from "next/image"
 import Link from "next/link"
 
-export default function ReservationCard({bookingDate,restaurantName,address,restaurantTel,numOfGuests,restaurantID}:
-    {bookingDate:Date,restaurantName:string,address:string,restaurantTel:string,numOfGuests:Number,restaurantID:string}) {
+export default function ReservationCard({bookingID,bookingDate,restaurantName,address,restaurantTel,numOfGuests,restaurantID}:
+    {bookingID:string,bookingDate:Date,restaurantName:string,address:string,restaurantTel:string,numOfGuests:Number,restaurantID:string}) {
     return(
         <div className="font-sans mx-3 bg-gray-200 text-xl max-w-3xl h-40 flex flex-row rounded-xl w-full hover:bg-gray-300 hover:shadow-xl mb-6">
-            <Link href={`/restaurant/${restaurantID}`} className="w-full h-full">
+            <Link href={`/reservations/${bookingID}`} className="w-full h-full">
                 <div className="flex flex-row h-full py-6">
                     <div className="ml-10 flex flex-col w-2/3 h-full justify-between">
                         <div className="flex flex-row">
