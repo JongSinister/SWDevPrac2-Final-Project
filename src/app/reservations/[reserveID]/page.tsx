@@ -81,7 +81,7 @@ export default function reservations({params}:{params:{reserveID:string}}) {
           Edit Reservation
       </button>
 
-      <button className="bg-gray-800 p-4 mx-20 text-xl font-bold font-sans text-cyan-600 rounded-xl hover:bg-gray-700"
+      <button className="bg-red-600 p-4 mx-20 text-xl font-bold font-sans text-white rounded-xl hover:bg-red-800"
               onClick={deleteBooking}>
           Delete Reservation
       </button>
