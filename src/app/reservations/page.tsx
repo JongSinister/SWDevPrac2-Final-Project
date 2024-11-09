@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import getRestaurants from "@/libs/getRestaurants";
 import {Select, MenuItem} from "@mui/material";
 import createBookings from "@/libs/createReservation";
+import { useRouter } from "next/navigation";
 
 export default function reservations() {
 
@@ -18,6 +19,7 @@ export default function reservations() {
   const [name, setName] = useState<string>('');
   const [numberOfPeople, setNumberOfPeople] = useState<string>("1");
   const [phoneNumber, setPhoneNumber] = useState<string>('');
+  const router = useRouter();
 
   const makeReservation = async () => {
     if (!bookingDate || !bookingTime || !name || !phoneNumber || !numberOfPeople || !selectedOption) {
@@ -32,6 +34,7 @@ export default function reservations() {
     if(response.success){
       console.log(response);
       alert("Reservation created successfully");
+      router.push("/");
     }else{
       alert("Failed to create reservation");
     }
