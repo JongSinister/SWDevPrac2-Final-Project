@@ -11,6 +11,7 @@ import {Select, MenuItem} from "@mui/material";
 import createBookings from "@/libs/createReservation";
 import { useRouter } from "next/navigation";
 import editReservation from "@/libs/editReservation";
+import deleteReservation from "@/libs/deleteReservation";
 
 export default function reservations({params}:{params:{reserveID:string}}) {
 
@@ -29,7 +30,6 @@ export default function reservations({params}:{params:{reserveID:string}}) {
     const formattedDate = dayjs(bookingDate).format('YYYY-MM-DD')
     const createdAt = dayjs().format('YYYY-MM-DD')
 
-    alert(params.reserveID);
     const response= await editReservation(params.reserveID,formattedDate,createdAt,parseInt(numberOfPeople));
     if(response.success){
       console.log(response);
@@ -37,6 +37,18 @@ export default function reservations({params}:{params:{reserveID:string}}) {
       router.push("/reservations");
     }else{
       alert("Failed to create reservation");
+    }
+  }
+
+  const deleteBooking = async () => {
+    alert(params.reserveID);
+    const response= await deleteReservation(params.reserveID);
+    if(response.success){
+      console.log(response);
+      alert("Reservation deleted successfully");
+      router.push("/reservations");
+    }else{
+      alert("Failed to delete reservation");
     }
   }
 
@@ -68,6 +80,12 @@ export default function reservations({params}:{params:{reserveID:string}}) {
               onClick={editBooking}>
           Edit Reservation
       </button>
+
+      <button className="bg-gray-800 p-4 mx-20 text-xl font-bold font-sans text-cyan-600 rounded-xl hover:bg-gray-700"
+              onClick={deleteBooking}>
+          Delete Reservation
+      </button>
+
     </div>
   );
 }
