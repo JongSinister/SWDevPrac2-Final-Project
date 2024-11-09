@@ -35,7 +35,10 @@ export default function reservations() {
       console.log(response);
       alert("Reservation created successfully");
       router.push("/");
-    }else{
+    }else if(response.message){
+      alert(response.message);
+    }
+    else{
       alert("Failed to create reservation");
     }
   }
