@@ -11,6 +11,8 @@ import {Select, MenuItem} from "@mui/material";
 import createBookings from "@/libs/createReservation";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import {Suspense} from "react";
+import {LinearProgress} from "@mui/material";
 
 export default function reservations() {
 
@@ -68,42 +70,44 @@ export default function reservations() {
 
   return (
     <div className="m-5">
-      <div className="text-5xl font-sans font-bold">
-        Reserve Your Best Restaurant
-      </div>
-      <div className="mx-20 flex flex-col font-sans font-bold text-xl w-full my-5">
+      <Suspense fallback={<p>Loading ... <LinearProgress/> </p>}>
+        <div className="text-5xl font-sans font-bold">
+          Reserve Your Best Restaurant
+        </div>
+        <div className="mx-20 flex flex-col font-sans font-bold text-xl w-full my-5">
 
-        User Name
-        <TextField name="Name" label="Name" className="min-w-64 max-w-xl mb-10" variant="standard"
+          User Name
+          <TextField name="Name" label="Name" className="min-w-64 max-w-xl mb-10" variant="standard"
                             value={name} onChange={(e)=>{setName(e.target.value)}}/>
 
-        Number of People
-        <TextField name="NumberOfPeople" type="number" value={numberOfPeople} className="w-16 mb-10"
+          Number of People
+          <TextField name="NumberOfPeople" type="number" value={numberOfPeople} className="w-16 mb-10"
                   onChange={(e)=>{setNumberOfPeople(e.target.value)}} inputProps={{min:1,max:200,step:1}}
                   placeholder="1" variant="standard"/>
 
-        Telephone Number
-        <TextField name="PhoneNumber" label="Phone Number" className="min-w-64 max-w-xl mb-10" 
+          Telephone Number
+          <TextField name="PhoneNumber" label="Phone Number" className="min-w-64 max-w-xl mb-10" 
                   type="tel" value={phoneNumber} onChange={(e)=>{setPhoneNumber(e.target.value)}} 
                   placeholder="0123456789" variant="standard"/>
         
-        Select Restaurant
-        <Select variant="standard" id="hospital" label="hospital" className="mb-10 min-w-64 max-w-xl"
+          Select Restaurant
+          <Select variant="standard" id="hospital" label="hospital" className="mb-10 min-w-64 max-w-xl"
                         value={selectedOption} onChange={(e) => {setSelectedOption(e.target.value)}}>
-          {
-            restaurantList.map((restaurant) => (
-              <MenuItem value={restaurant.id}>{restaurant.name}</MenuItem>
-            ))
-          }
-        </Select>
+            {
+              restaurantList.map((restaurant) => (
+                <MenuItem value={restaurant.id}>{restaurant.name}</MenuItem>
+              ))
+            }
+          </Select>
 
-        <BookingDateAndTime onDateChange={(value:Dayjs) => { setBookingDate(value) }} 
+          <BookingDateAndTime onDateChange={(value:Dayjs) => { setBookingDate(value) }} 
                           onTimeChange={(value:Dayjs) => { setBookingTime(value) }} />
-      </div>
-      <button className="bg-gray-800 p-4 mx-20 text-xl font-bold font-sans text-cyan-600 rounded-xl hover:bg-gray-700"
+        </div>
+        <button className="bg-gray-800 p-4 mx-20 text-xl font-bold font-sans text-cyan-600 rounded-xl hover:bg-gray-700"
               onClick={makeReservation}>
           Reserve
-      </button>
+        </button>
+      </Suspense>
     </div>
   );
 }
