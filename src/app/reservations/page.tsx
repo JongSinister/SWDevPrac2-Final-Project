@@ -10,8 +10,19 @@ import getRestaurants from "@/libs/getRestaurants";
 import {Select, MenuItem} from "@mui/material";
 import createBookings from "@/libs/createReservation";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function reservations() {
+
+  const {data:session}=useSession()
+
+  if (session){
+    return(
+      <div className="text-4xl font-sans font-bold">
+        Please login to create reservations.
+      </div>
+    )
+  }
 
   const [selectedOption, setSelectedOption] = useState('');
   const [bookingDate, setBookingDate] = useState<Dayjs | null>(null);
