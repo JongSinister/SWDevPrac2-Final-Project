@@ -19,7 +19,7 @@ export default async function viewReservationsPage(){
             {
                 session ? (
                     <div>
-                        <div className="font-sans m-6 text-3xl font-bold">
+                        <div className="font-sans m-6 text-4xl font-bold">
                             View Reservations
                         </div>
                         <div className="flex justify-center m-10">

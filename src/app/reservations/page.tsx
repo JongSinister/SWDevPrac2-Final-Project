@@ -18,7 +18,7 @@ export default function reservations() {
 
   if (!session){
     return(
-      <div className="text-4xl font-sans font-bold m-5">
+      <div className="text-4xl font-sans font-bold m-6">
         Please login to create reservations.
       </div>
     )
