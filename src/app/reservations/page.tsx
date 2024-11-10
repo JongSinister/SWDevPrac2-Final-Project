@@ -16,9 +16,9 @@ export default function reservations() {
 
   const {data:session}=useSession()
 
-  if (session){
+  if (!session){
     return(
-      <div className="text-4xl font-sans font-bold">
+      <div className="text-4xl font-sans font-bold m-5">
         Please login to create reservations.
       </div>
     )
