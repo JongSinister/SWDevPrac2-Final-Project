@@ -11,9 +11,11 @@ import {Select, MenuItem} from "@mui/material";
 import createBookings from "@/libs/createReservation";
 import { useRouter } from "next/navigation";
 import editReservation from "@/libs/editReservation";
+import { unstable_noStore as noStore } from "next/cache";
 import deleteReservation from "@/libs/deleteReservation";
 
 export default function reservations({params}:{params:{reserveID:string}}) {
+  noStore();
 
   const [bookingDate, setBookingDate] = useState<Dayjs | null>(null);
   const [bookingTime, setBookingTime] = useState<Dayjs | null>(null);
@@ -34,19 +36,20 @@ export default function reservations({params}:{params:{reserveID:string}}) {
     if(response.success){
       console.log(response);
       alert("Reservation edited successfully");
-      router.push("/reservations");
+      router.push("/view-reservations");
+      router.refresh();
     }else{
       alert("Failed to create reservation");
     }
   }
 
   const deleteBooking = async () => {
-    alert(params.reserveID);
     const response= await deleteReservation(params.reserveID);
     if(response.success){
       console.log(response);
       alert("Reservation deleted successfully");
-      router.push("/reservations");
+      router.push("/view-reservations");
+      router.refresh();
     }else{
       alert("Failed to delete reservation");
     }
