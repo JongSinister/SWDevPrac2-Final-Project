@@ -47,7 +47,7 @@ export default function reservations() {
     if(response.success){
       console.log(response);
       alert("Reservation created successfully");
-      router.push("/");
+      router.push("/view-reservations");
     }else if(response.message){
       alert(response.message);
     }
