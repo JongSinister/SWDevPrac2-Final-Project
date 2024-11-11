@@ -37,6 +37,7 @@ export default function reservations({params}:{params:{reserveID:string}}) {
       console.log(response);
       alert("Reservation edited successfully");
       router.push("/view-reservations");
+      router.refresh();
     }else{
       alert("Failed to create reservation");
     }
@@ -48,6 +49,7 @@ export default function reservations({params}:{params:{reserveID:string}}) {
       console.log(response);
       alert("Reservation deleted successfully");
       router.push("/view-reservations");
+      router.refresh();
     }else{
       alert("Failed to delete reservation");
     }
