@@ -3,7 +3,11 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 import { getServerSession } from "next-auth";
 import getMe from "@/libs/getMe";
 
-export default async function EditRestaurantPage() {
+export default async function EditRestaurantPage({
+  params,
+}: {
+  params: { rid: string };
+}) {
   const session = await getServerSession(authOptions);
   console.log("session : " + session);
   let isAdmin = false;
@@ -15,7 +19,7 @@ export default async function EditRestaurantPage() {
     <div className="ml-2">
       {isAdmin ? (
         <>
-          <UpdateRestaurantBoard />
+          <UpdateRestaurantBoard rid={params.rid} />
         </>
       ) : (
         <div>You don't have permission to enter This Route</div>

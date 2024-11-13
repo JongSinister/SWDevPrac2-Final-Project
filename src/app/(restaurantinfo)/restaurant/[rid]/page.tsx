@@ -4,12 +4,14 @@ import Link from "next/link";
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 import { getServerSession } from "next-auth";
 import getMe from "@/libs/getMe";
+import { unstable_noStore as noStore } from "next/cache";
 
 export default async function restaurantDetailPage({
   params,
 }: {
   params: { rid: string };
 }) {
+  noStore();
   const restaurant = await getRestaurant(params.rid);
 
   const session = await getServerSession(authOptions);
