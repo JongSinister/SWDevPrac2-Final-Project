@@ -2,6 +2,7 @@
 import { TextField } from "@mui/material";
 import { useState } from "react";
 import createRestaurant from "@/libs/createRestaurant";
+import Link from "next/link";
 
 export default function CreateRestaurantBoard() {
   const [name, setName] = useState("");
@@ -23,7 +24,10 @@ export default function CreateRestaurantBoard() {
   const [successMessage, setSuccessMessage] = useState("");
 
   const handleCreateRestaurant = async () => {
-    const isPictureValid = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp))$|^(https:\/\/drive\.google\.com\/.*)$/i.test(picture);
+    const isPictureValid =
+      /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp))$|^(https:\/\/drive\.google\.com\/.*)$/i.test(
+        picture
+      );
 
     const newErrors = {
       name: !name,
@@ -50,7 +54,7 @@ export default function CreateRestaurantBoard() {
       tel,
       picture,
     } as RestaurantItem;
-    
+
     await createRestaurant(restaurant);
 
     // Show success message and reset form
@@ -67,8 +71,10 @@ export default function CreateRestaurantBoard() {
 
   return (
     <div className="flex flex-col items-center w-80 space-y-4 mx-auto my-4 bg-white p-6 rounded-lg shadow-md border border-gray-200">
-      <h2 className="text-xl font-semibold text-gray-700 mb-2">Create Restaurant</h2>
-      
+      <h2 className="text-xl font-semibold text-gray-700 mb-2">
+        Create Restaurant
+      </h2>
+
       {successMessage && (
         <p className="text-green-600 font-medium text-sm">{successMessage}</p>
       )}
@@ -171,7 +177,7 @@ export default function CreateRestaurantBoard() {
           setErrors((prev) => ({ ...prev, picture: false }));
         }}
       />
-      
+
       <button
         className="bg-green-500 hover:bg-green-600 transition-all text-white font-medium py-2 px-4 rounded-lg mt-4 w-full"
         onClick={handleCreateRestaurant}
