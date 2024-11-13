@@ -15,7 +15,6 @@ export default async function adminPage() {
     <div className="ml-2">
       {isAdmin ? (
         <>
-          <h1 className="font-medium text-lg ml-3">Create Restaurant</h1>
           <CreateRestaurantBoard />
         </>
       ) : (
