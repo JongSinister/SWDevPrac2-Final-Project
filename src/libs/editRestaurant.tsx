@@ -1,6 +1,6 @@
 import { getSession } from "next-auth/react";
 
-export default async function createBookings(restaurant: RestaurantItem) {
+export default async function editRestaurant(id: string, restaurant: RestaurantItem) {
   try {
     const session = await getSession();
 
@@ -15,9 +15,9 @@ export default async function createBookings(restaurant: RestaurantItem) {
     }
 
     const response = await fetch(
-      `https://restaurant-booking-project-backend.vercel.app/api/v1/restaurants`,
+      `https://restaurant-booking-project-backend.vercel.app/api/v1/restaurants/${id}`,
       {
-        method: "POST",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${session.user.token}`,

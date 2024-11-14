@@ -13,13 +13,6 @@ export default function RestaurantSelector({
 }: {
   isAdmin: boolean;
 }) {
-  // const restaurantList = await restaurants;
-  // const session = await getServerSession(authOptions);
-  // console.log("session : " + session);
-  // let isAdmin = false;
-  // if (session) {
-  //   isAdmin = (await getMe()).data.role === "admin";
-  // }
   const [restaurantList, setRestaurantList] = useState<RestaurantItem[]>([]);
 
   const fetchRestaurants = async () => {
