@@ -24,7 +24,7 @@ describe("Admin views",()=>{
 
     it("Should exists an admin restaurant console",async()=>{
       const mockOnDelete = jest.fn();
-      render(<RestaurantCard id={"672fc12b6291757b2b4ccee0"} imgSrc={"/img/date.png"} 
+      render(<RestaurantCard id={"001"} imgSrc={"/img/mk.png"} 
         restaurantName={"MK"} foodtype={"general"} 
         isAdmin={true} onDelete={mockOnDelete} />);
       expect(screen.getByText("MK")).toBeInTheDocument();
