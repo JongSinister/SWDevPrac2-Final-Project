@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import deleteRestaurant from "@/libs/deleteRestaurant";
-import { unstable_noStore as noStore } from "next/cache";
 
 export default function RestaurantCard({
   id,
@@ -24,7 +23,8 @@ export default function RestaurantCard({
   };
 
   return (
-    <div className="font-sans mx-3 bg-gray-200 text-xl max-w-3xl h-40 flex flex-row rounded-xl w-full hover:bg-gray-300 hover:shadow-xl">
+    <div className="font-sans mx-3 bg-gray-200 text-xl max-w-3xl h-40 flex flex-row rounded-xl w-full hover:bg-gray-300 
+    hover:shadow-xl">
       <div className="relative h-full w-1/3">
         <Image
           src={imgSrc}
