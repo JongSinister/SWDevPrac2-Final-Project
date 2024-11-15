@@ -6,6 +6,7 @@ import Banner from "@/components/Banner";
 import { get } from "http";
 import RestaurantCard from "@/components/RestaurantCard";
 
+//Mock useRouter
 jest.mock('next/navigation', () => ({
   useRouter: () => ({
     push: jest.fn(),
@@ -13,6 +14,15 @@ jest.mock('next/navigation', () => ({
     pathname: '/',
   }),
 }));
+
+//Mock useSession
+jest.mock('next-auth/react',()=>({
+  useSession(){
+      return {
+          data:null,user:{name:'Tester'}
+      }
+  }
+}))
 
 describe("Admin views",()=>{
 
