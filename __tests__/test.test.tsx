@@ -32,4 +32,13 @@ describe("Admin views",()=>{
       const deleteButton = screen.getByText("Delete");
       expect(deleteButton).toBeInTheDocument();
     })
+
+    it("Should show restaurant details for users",async()=>{
+      const mockOnDelete = jest.fn();
+      render(<RestaurantCard id={"001"} imgSrc={"/img/mk.png"} 
+        restaurantName={"MK"} foodtype={"General"} 
+        isAdmin={false} onDelete={mockOnDelete} />);
+      expect(screen.getByText("MK")).toBeInTheDocument();
+      expect(screen.getByText("General Food")).toBeInTheDocument();
+    })
 })
