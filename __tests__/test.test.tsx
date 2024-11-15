@@ -16,13 +16,13 @@ jest.mock('next/navigation', () => ({
 
 describe("Admin views",()=>{
 
-    it("Should exists an admin restaurant console",async()=>{
+    it("Should exists an admin restaurant console button",async()=>{
       render(<Banner isAdmin={true} />);
       const adminConsoleText = screen.getByText("Admin Restaurant Console");
       expect(adminConsoleText).toBeInTheDocument();
     })
 
-    it("Should exists an admin restaurant console",async()=>{
+    it("Should exists a delete button for admin",async()=>{
       const mockOnDelete = jest.fn();
       render(<RestaurantCard id={"001"} imgSrc={"/img/mk.png"} 
         restaurantName={"MK"} foodtype={"General"} 
