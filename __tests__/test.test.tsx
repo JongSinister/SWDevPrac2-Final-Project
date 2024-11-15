@@ -24,7 +24,7 @@ jest.mock('next-auth/react',()=>({
   }
 }))
 
-describe("Admin views",()=>{
+describe("Admin and User views",()=>{
 
     it("Should exists an admin restaurant console button",async()=>{
       render(<Banner isAdmin={true} />);
