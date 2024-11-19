@@ -42,29 +42,30 @@ export default async function TopMenu() {
       </div>
 
       <div className="h-full hover:bg-gray-700 rounded-lg m-3 ml-auto">
-      {
-        session?
-        <Link href="/api/auth/signout" className="h-full">
-          <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
-            Log Out
-          </div>
-        </Link>
-        :
-        <Link href="/api/auth/signin">
-          <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
-            Log In
-          </div>
-        </Link>
-      }
+        {
+          session?
+          null
+          :
+          <Link href="/register">
+            <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
+              Register
+            </div>
+          </Link>
+        }
       </div>
 
       <div className="h-full hover:bg-gray-700 rounded-lg m-3">
         {
           session?
-          null:
-          <Link href="/register">
+          <Link href="/api/auth/signout" className="h-full">
             <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
-              Register
+              Log Out
+            </div>
+          </Link>
+          :
+          <Link href="/api/auth/signin">
+            <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
+              Log In
             </div>
           </Link>
         }
