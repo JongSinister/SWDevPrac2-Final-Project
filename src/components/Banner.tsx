@@ -5,11 +5,16 @@ import Image from "next/image";
 import getRestaurants from "@/libs/getRestaurants";
 import { unstable_noStore as noStore } from "next/cache";
 
+interface RestaurantItem {
+  id: string;
+  picture: string;
+}
+
 export default function Banner({ isAdmin }: { isAdmin: boolean }) {
   noStore();
   const router = useRouter();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [bannerCover, setBannerCover] = useState<string[]>([]);
+  const [bannerCover, setBannerCover] = useState<RestaurantItem[]>([]);
   const [isLoading, setIsLoading] = useState(true); // New loading state
 
   useEffect(() => {
@@ -17,9 +22,10 @@ export default function Banner({ isAdmin }: { isAdmin: boolean }) {
       try {
         const restaurants = await getRestaurants();
         console.log("Fetched restaurants data:", restaurants.data);
-        const images = restaurants.data.map(
-          (restaurant: RestaurantItem) => restaurant.picture
-        );
+        const images = restaurants.data.map((restaurant: RestaurantItem) => ({
+          id: restaurant.id,
+          picture: restaurant.picture,
+        }));
         setBannerCover(images);
       } catch (error) {
         console.error("Error fetching restaurants:", error);
@@ -43,13 +49,23 @@ export default function Banner({ isAdmin }: { isAdmin: boolean }) {
     }
   }, [bannerCover]);
 
+  const handleBannerClick = () => {
+    const currentRestaurant = bannerCover[currentImageIndex];
+    if (currentRestaurant?.id) {
+      router.push(`/restaurant/${currentRestaurant.id}`);
+    }
+  };
+
   return (
-    <div className="relative w-screen h-[80vh] overflow-hidden">
+    <div
+      className="relative w-screen h-[80vh] overflow-hidden cursor-pointer"
+      onClick={handleBannerClick}
+    >
       {bannerCover.length > 0 ? (
-        bannerCover.map((src, index) => (
+        bannerCover.map((restaurant, index) => (
           <Image
-            key={index}
-            src={src}
+            key={restaurant.id}
+            src={restaurant.picture}
             alt={`Slide ${index + 1}`}
             width={1920}
             height={1080}
@@ -58,7 +74,7 @@ export default function Banner({ isAdmin }: { isAdmin: boolean }) {
             }`}
           />
         ))
-      ) : !isLoading ? ( // Show alternate image only if loading is complete and no images found
+      ) : !isLoading ? (
         <Image
           key={0}
           src={"/img/tmpbackground.jpg"}
@@ -73,7 +89,7 @@ export default function Banner({ isAdmin }: { isAdmin: boolean }) {
         <button
           className="bg-white text-cyan-600 border border-cyan-600 font-semibold py-2 px-2 m-2 rounded z-30 absolute bottom-0 right-0 hover:bg-cyan-600 hover:text-white hover:border-transparent"
           onClick={(e) => {
-            e.stopPropagation();
+            e.stopPropagation(); // Prevent parent div click event
             router.push("/admin");
           }}
         >
