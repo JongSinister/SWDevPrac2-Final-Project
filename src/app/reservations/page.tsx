@@ -40,6 +40,12 @@ export default function reservations() {
       return;
     }
 
+    //for users, name must be the same as the one in the session
+    if(session.user.role=="user" && session.user.name!=name){
+      alert("You can only reserve for yourself.");
+      return;
+    }
+
     //number of people must be positive
     if (parseInt(numberOfPeople)<1){
       alert("Number of People must be at least 1.");
