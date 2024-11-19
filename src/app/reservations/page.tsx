@@ -36,13 +36,18 @@ export default function reservations() {
 
   const makeReservation = async () => {
     if (!bookingDate || !bookingTime || !name || !phoneNumber || !numberOfPeople || !selectedOption) {
-      alert("Please fill in all fields");
+      alert("Please fill in all fields.");
       return;
     }
 
     //number of people must be positive
     if (parseInt(numberOfPeople)<1){
-      alert("Number of People must be at least 1");
+      alert("Number of People must be at least 1.");
+      return;
+    }
+
+    if (!bookingDate.isAfter(dayjs(), 'day')){
+      alert("You can only reserve the restaurant for tomorrow or later.");
       return;
     }
 
