@@ -31,7 +31,12 @@ export default function reservations({params}:{params:{reserveID:string}}) {
     }
 
     if(parseInt(numberOfPeople)<1){
-      alert("Number of People must be at least 1");
+      alert("Number of People must be at least 1.");
+      return;
+    }
+
+    if (!bookingDate.isAfter(dayjs(), 'day')){
+      alert("You can only reserve the restaurant for tomorrow or later.");
       return;
     }
 
