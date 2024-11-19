@@ -29,6 +29,12 @@ export default function reservations({params}:{params:{reserveID:string}}) {
       alert("Please fill in all fields");
       return;
     }
+
+    if(parseInt(numberOfPeople)<1){
+      alert("Number of People must be at least 1");
+      return;
+    }
+
     const formattedDate = dayjs(bookingDate).format('YYYY-MM-DD')
     const createdAt = dayjs().format('YYYY-MM-DD')
 
