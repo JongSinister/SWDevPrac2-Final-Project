@@ -82,9 +82,6 @@ export default function reservations({params}:{params:{reserveID:string}}) {
         Edit Your Reservation
       </div>
       <div className="mx-20 flex flex-col font-sans font-bold text-xl w-full my-5">
-        User Name
-        <TextField name="Name" label="Name" className="min-w-64 max-w-xl mb-10" variant="standard"
-                            value={name} onChange={(e)=>{setName(e.target.value)}}/>
 
         Number of People
         <TextField name="NumberOfPeople" type="number" value={numberOfPeople} className="w-16 mb-10"
