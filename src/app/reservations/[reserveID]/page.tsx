@@ -40,6 +40,12 @@ export default function reservations({params}:{params:{reserveID:string}}) {
       return;
     }
 
+    //for users, name must be the same as the one in the session
+    if(session.user.role=="user" && session.user.name!=name){
+      alert("Name provided does not match your user name.");
+      return;
+    }
+
     if(parseInt(numberOfPeople)<1){
       alert("Number of People must be at least 1.");
       return;
