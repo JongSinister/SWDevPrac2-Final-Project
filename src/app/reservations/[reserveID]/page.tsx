@@ -29,13 +29,12 @@ export default function reservations({params}:{params:{reserveID:string}}) {
 
   const [bookingDate, setBookingDate] = useState<Dayjs | null>(null);
   const [bookingTime, setBookingTime] = useState<Dayjs | null>(null);
-  const [name, setName] = useState<string>('');
   const [numberOfPeople, setNumberOfPeople] = useState<string>("1");
   const [phoneNumber, setPhoneNumber] = useState<string>('');
   const router = useRouter();
 
   const editBooking = async () => {
-    if (!bookingDate || !bookingTime || !name || !phoneNumber || !numberOfPeople) {
+    if (!bookingDate || !bookingTime || !phoneNumber || !numberOfPeople) {
       alert("Please fill in all fields.");
       return;
     }
