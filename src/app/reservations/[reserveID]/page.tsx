@@ -13,19 +13,28 @@ import { useRouter } from "next/navigation";
 import editReservation from "@/libs/editReservation";
 import { unstable_noStore as noStore } from "next/cache";
 import deleteReservation from "@/libs/deleteReservation";
+import { useSession } from "next-auth/react";
 
 export default function reservations({params}:{params:{reserveID:string}}) {
   noStore();
+  const {data:session}=useSession()
+
+  if(!session){
+    return(
+      <div className="text-4xl font-sans font-bold m-6">
+        Please login to edit reservations.
+      </div>
+    )
+  }
 
   const [bookingDate, setBookingDate] = useState<Dayjs | null>(null);
   const [bookingTime, setBookingTime] = useState<Dayjs | null>(null);
-  const [name, setName] = useState<string>('');
   const [numberOfPeople, setNumberOfPeople] = useState<string>("1");
   const [phoneNumber, setPhoneNumber] = useState<string>('');
   const router = useRouter();
 
   const editBooking = async () => {
-    if (!bookingDate || !bookingTime || !name || !phoneNumber || !numberOfPeople) {
+    if (!bookingDate || !bookingTime || !phoneNumber || !numberOfPeople) {
       alert("Please fill in all fields.");
       return;
     }
@@ -72,9 +81,6 @@ export default function reservations({params}:{params:{reserveID:string}}) {
         Edit Your Reservation
       </div>
       <div className="mx-20 flex flex-col font-sans font-bold text-xl w-full my-5">
-        User Name
-        <TextField name="Name" label="Name" className="min-w-64 max-w-xl mb-10" variant="standard"
-                            value={name} onChange={(e)=>{setName(e.target.value)}}/>
 
         Number of People
         <TextField name="NumberOfPeople" type="number" value={numberOfPeople} className="w-16 mb-10"
