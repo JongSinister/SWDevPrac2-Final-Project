@@ -6,14 +6,6 @@
   export default async function createBookings(restaurantId: string,bookingDate: string,createdAt: string,numOfGuests: number) {
 
       const session = await getServerSession(authOptions);
-      if(session){
-        const reserved=await getBookings();
-        if (reserved.count >= 3) {
-          return { success: false, message: "Reached maximum amount of reservations" };
-        }
-      }else{
-        throw new Error("User is not authenticated");
-      }
       const response = await fetch(
         `https://restaurant-booking-project-backend.vercel.app/api/v1/restaurants/${restaurantId}/bookings`,{
           method:"POST",
@@ -29,6 +21,9 @@
         }
       );
       if (!response.ok) {
+        if (response.status === 400) {
+          return await response.json();
+        }
         throw new Error("Failed to fetch restaurants");
       }
       return await response.json();
