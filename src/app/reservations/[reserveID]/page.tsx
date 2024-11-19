@@ -26,7 +26,7 @@ export default function reservations({params}:{params:{reserveID:string}}) {
 
   const editBooking = async () => {
     if (!bookingDate || !bookingTime || !name || !phoneNumber || !numberOfPeople) {
-      alert("Please fill in all fields");
+      alert("Please fill in all fields.");
       return;
     }
 
