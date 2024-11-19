@@ -39,6 +39,13 @@ export default function reservations() {
       alert("Please fill in all fields");
       return;
     }
+
+    //number of people must be positive
+    if (parseInt(numberOfPeople)<1){
+      alert("Number of People must be at least 1");
+      return;
+    }
+
     const formattedDate = dayjs(bookingDate).format('YYYY-MM-DD')
     const createdAt = dayjs().format('YYYY-MM-DD')
     const restaurantId = selectedOption;
