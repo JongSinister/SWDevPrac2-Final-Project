@@ -13,9 +13,19 @@ import { useRouter } from "next/navigation";
 import editReservation from "@/libs/editReservation";
 import { unstable_noStore as noStore } from "next/cache";
 import deleteReservation from "@/libs/deleteReservation";
+import { useSession } from "next-auth/react";
 
 export default function reservations({params}:{params:{reserveID:string}}) {
   noStore();
+  const {data:session}=useSession()
+
+  if(!session){
+    return(
+      <div className="text-4xl font-sans font-bold m-6">
+        Please login to edit reservations.
+      </div>
+    )
+  }
 
   const [bookingDate, setBookingDate] = useState<Dayjs | null>(null);
   const [bookingTime, setBookingTime] = useState<Dayjs | null>(null);
