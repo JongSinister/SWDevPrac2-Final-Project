@@ -44,7 +44,9 @@ export default async function TopMenu() {
       <div className="h-full hover:bg-gray-700 rounded-lg m-3 ml-auto">
         {
           session?
-          null
+          <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
+            Hello, {session.user.name}
+          </div>
           :
           <Link href="/register">
             <div className="flex items-center h-full px-5 text-cyan-600 text-xl">
