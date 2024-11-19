@@ -1,8 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ReservationItem } from "../../../interfaces";
 
 type CartState = {
-    carItems: ReservationItem[]
+    carItems: BookingItem[]
 }
 
 const initialState: CartState = {
@@ -13,13 +12,13 @@ export const cartSlice = createSlice({
     name:"cart",
     initialState,
     reducers:{
-        addReservation: (state, action:PayloadAction<ReservationItem>) => {
+        addReservation: (state, action:PayloadAction<BookingItem>) => {
             state.carItems.push(action.payload)
         },
         //filter only the items that are not equal to the action.payload
-        removeReservation: (state, action:PayloadAction<ReservationItem>) => {
+        removeReservation: (state, action:PayloadAction<BookingItem>) => {
             const remainItems=state.carItems.filter(obj=>{
-                return (obj.carModel!==action.payload.carModel) || (obj.pickUpDate!==action.payload.pickUpDate) || (obj.returnDate!==action.payload.returnDate)
+                return (obj.id!==action.payload.id)
             })
             state.carItems = remainItems
         }
