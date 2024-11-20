@@ -12,20 +12,20 @@ export default async function ReservationsList({reservations}:{reservations:Prom
             { 
                 session ? (
                     bookingList.data.length>0?
-                    bookingList.data.map((booking) => (
-                    <ReservationCard
-                        bookingID={booking._id}
-                        bookingDate={new Date(booking.bookingDate)}
-                        restaurantName={booking.restaurant.name}
-                        address={booking.restaurant.address}
-                        restaurantTel={booking.restaurant.tel}
-                        numOfGuests={booking.numOfGuests}
-                        restaurantID={booking.restaurant.id}
-                    />
-                    )):
-                    <div className="text-center text-3xl">
-                        No Reservation to show
-                    </div>
+                        bookingList.data.map((booking) => (
+                            <ReservationCard
+                                bookingID={booking._id}
+                                bookingDate={new Date(booking.bookingDate)}
+                                restaurantName={booking.restaurant.name}
+                                address={booking.restaurant.address}
+                                restaurantTel={booking.restaurant.tel}
+                                numOfGuests={booking.numOfGuests}
+                                restaurantID={booking.restaurant.id}
+                            />
+                        )):
+                        <div className="text-center text-3xl">
+                            No Reservation to show
+                        </div>
                 ) : (
                     <div className="text-center text-red-500 text-3xl">
                         Please login to view Reservations.
