@@ -30,22 +30,29 @@ export default function RestaurantSelector({
 
   return (
     <div className="flex flex-col m-5 w-full justify-center">
-      {restaurantList.map((restaurant) => (
-        <Link
+      {restaurantList.length > 0 ? (
+        restaurantList.map((restaurant) => (
+          <Link
           href={`/restaurant/${restaurant.id}`}
           key={restaurant.id}
           className="my-2 flex justify-center w-full"
-        >
-          <RestaurantCard
+          >
+            <RestaurantCard
             id={restaurant.id}
             imgSrc={restaurant.picture}
             restaurantName={restaurant.name}
             foodtype={restaurant.foodtype}
             isAdmin={isAdmin}
             onDelete={handleDelete}
-          />
-        </Link>
-      ))}
+            />
+          </Link>
+        ))
+      ) : (
+        <div className="text-center text-3xl">
+          No Restaurant Found
+        </div>
+      )}
+
     </div>
   );
 }
