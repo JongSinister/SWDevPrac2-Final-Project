@@ -11,6 +11,7 @@ export default async function ReservationsList({reservations}:{reservations:Prom
         <div className="flex flex-col m-5 w-full justify-center">
             { 
                 session ? (
+                    bookingList.data.length>0?
                     bookingList.data.map((booking) => (
                     <ReservationCard
                         bookingID={booking._id}
@@ -21,7 +22,10 @@ export default async function ReservationsList({reservations}:{reservations:Prom
                         numOfGuests={booking.numOfGuests}
                         restaurantID={booking.restaurant.id}
                     />
-                    ))
+                    )):
+                    <div className="text-center text-3xl">
+                        No Reservation to show
+                    </div>
                 ) : (
                     <div className="text-center text-red-500 text-3xl">
                         Please login to view Reservations.
