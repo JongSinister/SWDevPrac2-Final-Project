@@ -2,4 +2,4 @@
 
 ## Restaurant Reservation Application
 
-See deployment [Here](https://software-development-practice-ii-final-project.vercel.app)
+See deployment <a href="https://software-development-practice-ii-final-project.vercel.app" target="_blank">Here</a>
